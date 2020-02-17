@@ -1,29 +1,8 @@
-.wrapper {
+.app-wrapper {
     display: grid;
     grid-template-areas: 'Header Header Header' 'Navbar Article Article' 'Footer Footer Footer';
     grid-template-columns: 200px 1fr;
     grid-template-rows: 60px 1fr 60px;
-
 }
 
-.header {
-    background-color: aquamarine;
-    grid-area: Header;
-}
-
-.footer {
-    background-color: cornflowerblue;
-    grid-area: Footer;
-}
-
-
-.article {
-    background-color: #fff7bf;
-    grid-area: Article;
-}
-
-.navbar {
-    background-color: #9187ff;
-    grid-area: Navbar;
-}
 

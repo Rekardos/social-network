@@ -1,0 +1,9 @@
+.navbar {
+    background-color: #9187ff;
+    grid-area: Navbar;
+}
+
+.item {
+    color: #e9eeff;
+    margin-bottom: 20px;
+}
