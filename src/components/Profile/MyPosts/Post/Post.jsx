@@ -1,11 +1,12 @@
 import React from "react";
 import c from './Post.module.css';
 
-const post = () => {
+const post = (props) => {
     return (
         <div className={c.post}>
             <img src="https://via.placeholder.com/50"/>
-            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, necessitatibus.</span>
+            <span>{props.message}</span>
+            <div>Like</div>
         </div>
     );
 };
