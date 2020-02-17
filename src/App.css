@@ -1,8 +1,12 @@
 .app-wrapper {
     display: grid;
-    grid-template-areas: 'Header Header Header' 'Navbar Profile Profile' 'Footer Footer Footer';
+    grid-template-areas: 'Header Header Header' 'Navbar Component Component' 'Footer Footer Footer';
     grid-template-columns: 200px 1fr;
     grid-template-rows: 60px 1fr 60px;
+}
+
+.app-wrapper-component {
+    grid-area: Component;
 }
 
 
