@@ -5,9 +5,10 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Footer from "./components/Footer/Footer";
 import Dialogs from "./components/Dialogs/Dialogs";
-import {Route,BrowserRouter} from "react-router-dom";
-import Friends from "./components/Friends/Friends";
+import {Route, BrowserRouter} from "react-router-dom";
+import Music from "./components/Music/Music";
 import News from "./components/News/News";
+import Settings from "./components/Settings/Settings";
 
 const App = () => {
     return (
@@ -17,9 +18,10 @@ const App = () => {
                 <Navbar/>
                 <div className={'app-wrapper-component'}>
                     <Route path={'/profile'} component={Profile}/>
-                    <Route path={'/friends'} component={Friends}/>
                     <Route path={'/messages'} component={Dialogs}/>
                     <Route path={'/news'} component={News}/>
+                    <Route path={'/music'} component={Music}/>
+                    <Route path={'/settings'} component={Settings}/>
                 </div>
                 <Footer/>
             </div>
