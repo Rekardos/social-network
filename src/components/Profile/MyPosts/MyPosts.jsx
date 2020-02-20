@@ -3,7 +3,7 @@ import c from './MyPosts.module.css';
 import Post from "./Post/Post";
 import AddPost from "./AddPost/AddPost";
 
-const MyPosts = () => {
+const MyPosts = (props) => {
     return (
         <div className={c.posts}>
             <h3>My Posts</h3>

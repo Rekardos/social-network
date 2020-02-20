@@ -4,8 +4,12 @@ import c from './AddPost.module.css';
 const AddPost = () => {
     return (
         <div className={c.addPost}>
-            <textarea/>
-            <input type='submit' />
+            <div>
+                <textarea/>
+            </div>
+            <div>
+                <input type='submit'/>
+            </div>
         </div>
     );
 };

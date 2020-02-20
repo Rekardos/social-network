@@ -7,3 +7,12 @@
     color: #e9eeff;
     margin-bottom: 20px;
 }
+
+.item a {
+    text-decoration: none;
+    color: seashell;
+}
+
+.item .active {
+    color: gold;
+}

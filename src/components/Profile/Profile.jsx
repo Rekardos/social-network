@@ -1,11 +1,12 @@
 import React from "react";
 import c from './Profile.module.css';
 import MyPosts from './MyPosts/MyPosts'
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const profile = () => {
     return (
         <div className={c.profile}>
-            <img src="https://via.placeholder.com/1100x200?text=Content"/>
+            <ProfileInfo/>
             <MyPosts/>
         </div>
     );
