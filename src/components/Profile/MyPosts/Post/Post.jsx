@@ -1,13 +1,15 @@
 import React from "react";
 import c from './Post.module.css';
+import Avatar from "@material-ui/core/Avatar";
+import {Container} from "@material-ui/core";
+import Box from "@material-ui/core/Box";
 
 const post = (props) => {
     return (
-        <div className={c.post}>
-            <img src="https://via.placeholder.com/50"/>
+        <Box className={c.post}>
+            <Avatar src="https://via.placeholder.com/50"/>
             <span>{props.message}</span>
-            <div>Like</div>
-        </div>
+        </Box>
     );
 };
 

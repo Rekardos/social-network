@@ -4,15 +4,13 @@ import Post from "./Post/Post";
 import AddPost from "./AddPost/AddPost";
 
 const MyPosts = (props) => {
+
+    let post = props.profilePage.posts.map(post => <Post message={post.text}/>);
     return (
         <div className={c.posts}>
-            <h3>My Posts</h3>
-            <AddPost/>
-            <Post message={"lorem12"}/>
-            <Post message={"lorem213231"}/>
-            <Post message={"3213213213"}/>
-            <Post message={"321412"}/>
-            <Post message={"3333"}/>
+            <h3>Мои посты</h3>
+            <AddPost profilePage={props.profilePage} addPost={props.addPost} updateText={props.updateText}/>
+            {post}
         </div>
     );
 };

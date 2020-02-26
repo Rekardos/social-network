@@ -2,13 +2,15 @@ import React from "react";
 import c from './Profile.module.css';
 import MyPosts from './MyPosts/MyPosts'
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import {Container} from "@material-ui/core";
 
-const profile = () => {
+const profile = (props) => {
+
     return (
-        <div className={c.profile}>
+        <Container className={c.profile}>
             <ProfileInfo/>
-            <MyPosts/>
-        </div>
+            <MyPosts profilePage={props.profilePage} addPost={props.addPost} updateText={props.updateText}/>
+        </Container>
     );
 };
 

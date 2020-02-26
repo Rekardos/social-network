@@ -3,10 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {addMessage, addPost, state, updateNewMessageText, updateNewPostText} from "./state";
 
-ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+export let renderApp = (state) => {
+    ReactDOM.render(<App state={state}
+                         addMessage={addMessage}
+                         updateMessageText={updateNewMessageText}
+                         addPost={addPost}
+                         updateText={updateNewPostText}/>, document.getElementById('root'));
+};
+
+renderApp(state);
+
+
 serviceWorker.unregister();

@@ -1,16 +1,28 @@
 import React from "react";
 import c from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
+import MenuItem from "@material-ui/core/MenuItem";
+import {MenuList} from "@material-ui/core";
 
 const navbar = () => {
     return (
-        <div className={c.navbar}>
-            <div className={c.item}><NavLink to={'/profile'}  activeClassName={c.active}>Profile</NavLink></div>
-            <div className={c.item}><NavLink to={'/dialogs'} activeClassName={c.active}>Dialogs</NavLink></div>
-            <div className={c.item}><NavLink to={'/news'} activeClassName={c.active}>News</NavLink></div>
-            <div className={c.item}><NavLink to={'/music'} activeClassName={c.active}>Music</NavLink></div>
-            <div className={c.item}><NavLink to={'/settings'} activeClassName={c.active}>Settings</NavLink></div>
-        </div>
+        <MenuList className={c.navbar}>
+            <MenuItem component={NavLink} to={'/profile'}>
+                Профиль
+            </MenuItem>
+            <MenuItem component={NavLink} to={'/dialogs'}>
+                Диалоги
+            </MenuItem>
+            <MenuItem component={NavLink} to={'/news'}>
+                Новости
+            </MenuItem>
+            <MenuItem component={NavLink} to={'/music'}>
+                Музыка
+            </MenuItem>
+            <MenuItem component={NavLink} to={'/settings'}>
+                Настройки
+            </MenuItem>
+        </MenuList>
     );
 };
 

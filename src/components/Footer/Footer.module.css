@@ -1,9 +1,4 @@
 .footer {
-    background-color: cornflowerblue;
+    background-color: #303b43;
     grid-area: Footer;
-}
-
-.item {
-    color: #e9eeff;
-    margin-right: 20px;
 }
