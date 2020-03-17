@@ -1,3 +1,17 @@
 .navbar {
     grid-area: Navbar;
+    display: grid;
+
+}
+
+.friends {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+
+
+}
+
+.friendsWrapper   {
+    align-self: start;
 }

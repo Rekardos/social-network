@@ -9,7 +9,7 @@ const MyPosts = (props) => {
     return (
         <div className={c.posts}>
             <h3>Мои посты</h3>
-            <AddPost profilePage={props.profilePage} addPost={props.addPost} updateText={props.updateText}/>
+            <AddPost profilePage={props.profilePage} dispatch={props.dispatch}/>
             {post}
         </div>
     );

@@ -1,5 +1,6 @@
 .app-wrapper {
-    width: 1280px;
+    width: 100%;
+
     margin:  0 auto;
     display: grid;
     grid-template-areas: 'Header Header Header' 'Navbar Component Component' 'Footer Footer Footer';

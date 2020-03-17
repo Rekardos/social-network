@@ -3,18 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {addMessage, addPost, state, updateNewMessageText, updateNewPostText} from "./state";
+import {store} from './state';
 
 
 export let renderApp = (state) => {
     ReactDOM.render(<App state={state}
-                         addMessage={addMessage}
-                         updateMessageText={updateNewMessageText}
-                         addPost={addPost}
-                         updateText={updateNewPostText}/>, document.getElementById('root'));
+                         dispatch={store.dispatch.bind(store)}/>, document.getElementById('root'));
 };
+renderApp(store.getState());
 
-renderApp(state);
+store.subscribe(renderApp);
 
 
 serviceWorker.unregister();

@@ -14,11 +14,11 @@ const Dialogs = (props) => {
     let message = props.dialogsPage.messages.map((message) => <Message mess={message.message}/>);
 
     let addMessage = () => {
-        props.addMessage(refMessage.current.value);
+        props.dispatch({type:'ADD-MESSAGE'});
     };
 
     let changeMessage = () => {
-        props.updateMessageText(refMessage.current.value);
+        props.dispatch({type:'NEW-MESSAGE-TEXT',text: refMessage.current.value});
     };
 
     return (
