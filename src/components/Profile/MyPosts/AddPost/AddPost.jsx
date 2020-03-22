@@ -3,7 +3,7 @@ import c from './AddPost.module.css';
 import Button from "@material-ui/core/Button";
 import {TextField} from "@material-ui/core";
 import Box from "@material-ui/core/Box";
-import {addPostActionCreator, newPostTextActionCreator} from "../../../../state";
+import {addPostActionCreator, newPostTextActionCreator} from "../../../../redux/profileReducer";
 
 const AddPost = (props) => {
 
