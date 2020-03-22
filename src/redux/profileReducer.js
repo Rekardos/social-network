@@ -10,7 +10,17 @@ export const newPostTextActionCreator = (text) => {
 };
 
 
-export const profileReducer = (state, action) => {
+let initialState = {
+    newPostText: '',
+    posts: [
+        {id: 1, text: 'lorem10'},
+        {id: 2, text: 'lorem09'},
+        {id: 3, text: 'lorem11'},
+        {id: 4, text: 'lorem15'}
+    ]
+};
+
+export const profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_POST:

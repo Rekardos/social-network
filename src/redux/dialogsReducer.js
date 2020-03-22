@@ -9,8 +9,24 @@ export const newMessageTextActionCreator = (text) => {
     return {type: NEW_MESSAGE_TEXT, text: text};
 };
 
+let initialState = {
 
-export const dialogsReducer = (state, action) => {
+    dialogs: [
+        {id: 1, name: 'Anton'},
+        {id: 2, name: 'Sasha'}
+    ],
+    newMessageText: '',
+    messages: [
+
+        {id: 1, message: 'My car'},
+        {id: 2, message: 'Yes my'},
+        {id: 3, message: 'Yes my'},
+        {id: 4, message: 'Yes my'}
+    ]
+
+};
+
+export const dialogsReducer = (state = initialState, action) => {
 
 
     switch (action.type) {
