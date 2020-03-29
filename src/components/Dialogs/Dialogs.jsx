@@ -4,7 +4,6 @@ import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import {Container, TextField} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
-import {addMessageActionCreator, newMessageTextActionCreator} from "../../redux/dialogsReducer";
 
 const Dialogs = (props) => {
 
@@ -15,12 +14,12 @@ const Dialogs = (props) => {
     let message = props.dialogsPage.messages.map((message) => <Message mess={message.message}/>);
 
     let addMessage = () => {
-        props.dispatch(addMessageActionCreator());
+        props.addMessage()
     };
 
     let changeMessage = () => {
         let messageText = refMessage.current.value;
-        props.dispatch(newMessageTextActionCreator(messageText));
+        props.changeMessage(messageText);
     };
 
     return (

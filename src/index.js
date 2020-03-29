@@ -4,15 +4,20 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {store} from './redux/reduxStore';
+import {Provider} from "./StoreContext";
 
 
-export let renderApp = (state) => {
-    ReactDOM.render(<App state={state}
-                         dispatch={store.dispatch.bind(store)}/>, document.getElementById('root'));
+export let renderApp = () => {
+    ReactDOM.render(
+        <Provider store={store}>
+            <App/>
+        </Provider>
+        , document.getElementById('root'));
 };
+
 renderApp(store.getState());
 
-store.subscribe(()=>{
+store.subscribe(() => {
     let state = store.getState();
     renderApp(state)
 });

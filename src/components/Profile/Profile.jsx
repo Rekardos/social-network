@@ -3,12 +3,14 @@ import c from './Profile.module.css';
 import MyPosts from './MyPosts/MyPosts'
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import {Container} from "@material-ui/core";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import {store} from "../../redux/reduxStore";
 
 const profile = (props) => {
     return (
         <Container className={c.profile}>
             <ProfileInfo/>
-            <MyPosts profilePage={props.profilePage} dispatch={props.dispatch}/>
+            <MyPostsContainer/>
         </Container>
     );
 };
