@@ -9,9 +9,9 @@ const Dialogs = (props) => {
 
     let refMessage = React.createRef();
 
-    let dialogItem = props.dialogsPage.dialogs.map((dialog) => <DialogItem id={dialog.id} name={dialog.name}/>);
+    let dialogItem = props.dialogsPage.dialogs.map((dialog) => <DialogItem key={dialog.id} id={dialog.id} name={dialog.name}/>);
 
-    let message = props.dialogsPage.messages.map((message) => <Message mess={message.message}/>);
+    let message = props.dialogsPage.messages.map((message) => <Message key={message.id} mess={message.message}/>);
 
     let addMessage = () => {
         props.addMessage()

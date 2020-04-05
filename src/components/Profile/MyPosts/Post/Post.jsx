@@ -1,7 +1,6 @@
 import React from "react";
 import c from './Post.module.css';
 import Avatar from "@material-ui/core/Avatar";
-import {Container} from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 
 const post = (props) => {

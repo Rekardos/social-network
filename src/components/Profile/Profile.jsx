@@ -1,12 +1,10 @@
 import React from "react";
 import c from './Profile.module.css';
-import MyPosts from './MyPosts/MyPosts'
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import {Container} from "@material-ui/core";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
-import {store} from "../../redux/reduxStore";
 
-const profile = (props) => {
+const profile = () => {
     return (
         <Container className={c.profile}>
             <ProfileInfo/>

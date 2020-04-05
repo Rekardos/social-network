@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {store} from './redux/reduxStore';
-import {Provider} from "./StoreContext";
+import {Provider} from "react-redux";
+import {store} from "./redux/reduxStore";
 
 
 export let renderApp = () => {
@@ -15,12 +15,6 @@ export let renderApp = () => {
         , document.getElementById('root'));
 };
 
-renderApp(store.getState());
-
-store.subscribe(() => {
-    let state = store.getState();
-    renderApp(state)
-});
-
+renderApp();
 
 serviceWorker.unregister();

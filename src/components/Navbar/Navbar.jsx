@@ -20,6 +20,9 @@ const navbar = () => {
                 <MenuItem component={NavLink} to={'/news'}>
                     Новости
                 </MenuItem>
+                <MenuItem component={NavLink} to={'/users'}>
+                    Найти людей
+                </MenuItem>
                 <MenuItem component={NavLink} to={'/music'}>
                     Музыка
                 </MenuItem>
@@ -27,37 +30,37 @@ const navbar = () => {
                     Настройки
                 </MenuItem>
             </MenuList>
-            <div className={c.friendsWrapper}>
-                <h3>Друзья</h3>
-                <div className={c.friends}>
+            {/*<div className={c.friendsWrapper}>*/}
+            {/*    <h3>Друзья</h3>*/}
+            {/*    <div className={c.friends}>*/}
 
-                    <Box>
-                        <Badge color="secondary" overlap="circle" variant="dot">
-                            <Avatar src={'https://via.placeholder.com/50'}/>
-                        </Badge>
-                    </Box>
-                    <Box>
-                        <Badge color="secondary" overlap="circle" variant="dot">
-                            <Avatar src={'https://via.placeholder.com/50'}/>
-                        </Badge>
-                    </Box>
-                    <Box>
-                        <Badge color="secondary" overlap="circle" variant="dot">
-                            <Avatar src={'https://via.placeholder.com/50'}/>
-                        </Badge>
-                    </Box>
-                    <Box>
-                        <Badge color="secondary" overlap="circle" variant="dot">
-                            <Avatar src={'https://via.placeholder.com/50'}/>
-                        </Badge>
-                    </Box>
-                    <Box>
-                        <Badge color="secondary" overlap="circle" variant="dot">
-                            <Avatar src={'https://via.placeholder.com/50'}/>
-                        </Badge>
-                    </Box>
-                </div>
-            </div>
+            {/*        <Box>*/}
+            {/*            <Badge color="secondary" overlap="circle" variant="dot">*/}
+            {/*                <Avatar src={'https://via.placeholder.com/50'}/>*/}
+            {/*            </Badge>*/}
+            {/*        </Box>*/}
+            {/*        <Box>*/}
+            {/*            <Badge color="secondary" overlap="circle" variant="dot">*/}
+            {/*                <Avatar src={'https://via.placeholder.com/50'}/>*/}
+            {/*            </Badge>*/}
+            {/*        </Box>*/}
+            {/*        <Box>*/}
+            {/*            <Badge color="secondary" overlap="circle" variant="dot">*/}
+            {/*                <Avatar src={'https://via.placeholder.com/50'}/>*/}
+            {/*            </Badge>*/}
+            {/*        </Box>*/}
+            {/*        <Box>*/}
+            {/*            <Badge color="secondary" overlap="circle" variant="dot">*/}
+            {/*                <Avatar src={'https://via.placeholder.com/50'}/>*/}
+            {/*            </Badge>*/}
+            {/*        </Box>*/}
+            {/*        <Box>*/}
+            {/*            <Badge color="secondary" overlap="circle" variant="dot">*/}
+            {/*                <Avatar src={'https://via.placeholder.com/50'}/>*/}
+            {/*            </Badge>*/}
+            {/*        </Box>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
 
         </div>
 
