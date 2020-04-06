@@ -1,7 +1,14 @@
 import React from "react";
 import Users from "./Users";
 import {connect} from "react-redux";
-import {followAC, setCountUsersAC, setCurrentPageAC, setUsersAC, unfollowAC} from "../redux/usersReducer";
+import {
+    followAC,
+    setCountUsersAC,
+    setCurrentPageAC,
+    setUsersAC,
+    toggeleIsFetchingAC,
+    unfollowAC
+} from "../redux/usersReducer";
 import * as axios from "axios";
 
 
@@ -9,8 +16,10 @@ import * as axios from "axios";
 class UsersContainer extends React.Component {
     componentDidMount() {
 
+        this.props.toggeleIsFetching(true);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(response => {
+                    this.props.toggeleIsFetching(false);
                     this.props.setCountUsers(response.data.totalCount)
                     this.props.setUsers(response.data.items)
                 }
@@ -19,8 +28,10 @@ class UsersContainer extends React.Component {
 
     pageNumber = (page) => {
         this.props.setCurrentPage(page)
+        this.props.toggeleIsFetching(true);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`)
             .then(response => {
+                this.props.toggeleIsFetching(false);
                 this.props.setUsers(response.data.items)
             })
     };
@@ -31,7 +42,8 @@ class UsersContainer extends React.Component {
                       pageSize={this.props.pageSize}
                       pageNumber={this.pageNumber}
                       follow={this.props.follow}
-                      unfollow={this.props.unfollow}/>
+                      unfollow={this.props.unfollow}
+                      isFetching={this.props.isFetching}/>
     }
 }
 
@@ -42,7 +54,8 @@ let mapStateToProps = (state) => {
         users: state.usersPage.users,
         totalUsers : state.usersPage.totalUsers,
         pageSize: state.usersPage.pageSize,
-        currentPage: state.usersPage.currentPage
+        currentPage: state.usersPage.currentPage,
+        isFetching: state.usersPage.isFetching
     }
 };
 
@@ -67,6 +80,10 @@ let mapDispatchToProps = (dispatch) => {
 
         setCurrentPage: (page) => {
             dispatch(setCurrentPageAC(page))
+        },
+
+        toggeleIsFetching: (isFetching) => {
+            dispatch(toggeleIsFetchingAC(isFetching))
         }
     }
 };

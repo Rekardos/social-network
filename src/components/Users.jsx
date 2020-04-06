@@ -1,5 +1,6 @@
 import * as React from "react";
 import Pagination from "@material-ui/lab/Pagination";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 
 let Users = (props) => {
@@ -19,6 +20,8 @@ let Users = (props) => {
 
 
     return <div>
+
+        { props.isFetching ? <CircularProgress/> : null}
 
         {users}
 
