@@ -5,27 +5,27 @@ const SET_COUNT_USERS = 'COUNT_USERS';
 const SET_CURRENT_PAGE = 'CURRENT_PAGE';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
-export const followAC = (userId) => {
+export const follow = (userId) => {
     return {type: FOLLOW,userId};
 };
 
-export const unfollowAC = (userId) => {
+export const unfollow = (userId) => {
     return {type: UNFOLLOW,userId};
 };
 
-export const setUsersAC = (users) => {
+export const setUsers = (users) => {
     return {type: SET_USERS,users};
 };
 
-export const setCountUsersAC = (count) => {
+export const setCountUsers = (count) => {
     return {type: SET_COUNT_USERS,count};
 };
 
-export const setCurrentPageAC = (page) => {
+export const setCurrentPage = (page) => {
     return {type: SET_CURRENT_PAGE,page};
 };
 
-export const toggeleIsFetchingAC = (isFetching) => {
+export const toggeleIsFetching = (isFetching) => {
     return {type: TOGGLE_IS_FETCHING,isFetching};
 };
 
