@@ -8,7 +8,7 @@ import {
     setUsers,
     toggeleIsFetching,
     unfollow
-} from "../redux/usersReducer";
+} from "../../redux/usersReducer";
 import * as axios from "axios";
 
 

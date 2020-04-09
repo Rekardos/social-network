@@ -4,13 +4,14 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import {Container} from "@material-ui/core";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
-const profile = () => {
+const Profile = (props) => {
+
     return (
         <Container className={c.profile}>
-            <ProfileInfo/>
+            <ProfileInfo profile={props.profile}/>
             <MyPostsContainer/>
         </Container>
     );
 };
 
-export default profile;
+export default Profile;

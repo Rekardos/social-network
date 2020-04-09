@@ -1,5 +1,6 @@
 const ADD_POST = 'ADD-POST';
 const NEW_POST_TEXT = 'NEW-POST-TEXT';
+const SET_PROFILE = 'SET_PROFILE';
 
 export const addPostActionCreator = () => {
     return {type: ADD_POST};
@@ -7,6 +8,10 @@ export const addPostActionCreator = () => {
 
 export const newPostTextActionCreator = (text) => {
     return {type: NEW_POST_TEXT, text: text};
+};
+
+export const setProfile = (profile) => {
+    return {type: SET_PROFILE, profile: profile};
 };
 
 
@@ -17,7 +22,8 @@ let initialState = {
         {id: 2, text: 'lorem09'},
         {id: 3, text: 'lorem11'},
         {id: 4, text: 'lorem15'}
-    ]
+    ],
+    profile: null
 };
 
 export const profileReducer = (state = initialState, action) => {
@@ -46,6 +52,11 @@ export const profileReducer = (state = initialState, action) => {
             };
 
         }
+
+        case SET_PROFILE: {
+            return {...state,profile: action.profile}
+        }
+
         default:
             return state;
     }
