@@ -3,3 +3,7 @@
     grid-area: Header;
 }
 
+.login {
+    float: right;
+}
+
