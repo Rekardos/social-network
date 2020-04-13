@@ -9,6 +9,8 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import {makeStyles} from "@material-ui/styles";
 import {NavLink} from "react-router-dom";
+import * as axios from "axios";
+import {API} from "../../api/api";
 
 let Users = (props) => {
 
@@ -35,12 +37,35 @@ let Users = (props) => {
                 </NavLink>
                 <Typography>Никнейм: {e.name}</Typography>
 
-               <Typography>Статус: {e.status ? e.status : 'не указан'}</Typography>
+                <Typography>Статус: {e.status ? e.status : 'не указан'}</Typography>
 
                 <CardActions>
                     {e.followed ?
-                        <Button onClick={() => props.unfollow(e.id)}> Отписаться</Button> :
-                        <Button onClick={() => props.follow(e.id)}> Подписаться</Button>}
+                        <Button disabled={props.followInProgress.some(id => id === e.id)} onClick={() => {
+
+                            props.togglefollowInProgress(true,e.id)
+                            API.unfollow(e.id)
+                                .then(response => {
+                                    if (response.resultCode === 0) {
+                                        props.unfollow(e.id)
+                                    }
+                                    props.togglefollowInProgress(false,e.id)
+                                })
+
+                        }}> Отписаться</Button> :
+                        <Button disabled={props.followInProgress.some(id => id === e.id)} onClick={() => {
+
+                            props.togglefollowInProgress(true,e.id)
+                            API.follow(e.id)
+                                .then(response => {
+                                    if (response.resultCode === 0) {
+                                        props.follow(e.id)
+                                    }
+                                    props.togglefollowInProgress(false,e.id)
+                                })
+
+
+                        }}> Подписаться</Button>}
                 </CardActions>
 
             </CardContent>
