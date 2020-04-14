@@ -3,15 +3,23 @@ import {connect} from "react-redux";
 import Profile from "./Profile";
 import {getProfileThunkCreator, setProfile} from "../../redux/profileReducer";
 import {withRouter} from "react-router-dom";
+import {withAuthRedirect} from "../hoc/AuthRedirectComponent";
+import {compose} from "redux";
 
 
 class ProfileContainer extends React.Component {
 
 
     componentDidMount() {
-        let userId = this.props.match.params.userId;
 
-        this.props.getProfileThunkCreator(userId)
+        let userId = this.props.match.params.userId;
+        let meProfileId =  this.props.meProfile.id
+
+        if(userId) {
+            this.props.getProfileThunkCreator(userId)
+        }else {
+            this.props.getProfileThunkCreator(meProfileId)
+        }
 
     }
 
@@ -27,10 +35,13 @@ class ProfileContainer extends React.Component {
 let mapStateToPorps = (state) => {
 
     return {
-        profile: state.profilePage.profile
+        profile: state.profilePage.profile,
+        meProfile: state.auth
     }
 };
 
-let withRouterProfileComponentContainer = withRouter(ProfileContainer)
-
-export default connect(mapStateToPorps,{setProfile,getProfileThunkCreator})(withRouterProfileComponentContainer);
+export default compose(
+    withAuthRedirect,
+    withRouter,
+    connect(mapStateToPorps,{setProfile,getProfileThunkCreator})
+)(ProfileContainer)

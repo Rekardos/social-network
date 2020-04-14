@@ -9,6 +9,8 @@ import {
     toggeleIsFetching, togglefollowInProgress,
     unfollow, unfollowThunkCreator
 } from "../../redux/usersReducer";
+import {compose} from "redux";
+import {withAuthRedirect} from "../hoc/AuthRedirectComponent";
 
 
 class UsersContainer extends React.Component {
@@ -48,27 +50,29 @@ let mapStateToProps = (state) => {
     }
 };
 
+export default compose(
+    withAuthRedirect,
+    connect(mapStateToProps, {
+        follow,
 
-export default connect(mapStateToProps, {
-    follow,
+        unfollow,
 
-    unfollow,
+        setUsers,
 
-    setUsers,
+        setCountUsers,
 
-    setCountUsers,
+        setCurrentPage,
 
-    setCurrentPage,
+        toggeleIsFetching,
 
-    toggeleIsFetching,
+        togglefollowInProgress,
 
-    togglefollowInProgress,
+        getUsersThunkCreator,
 
-    getUsersThunkCreator,
+        followThunkCreator,
 
-    followThunkCreator,
-
-    unfollowThunkCreator
+        unfollowThunkCreator
 
 
-})(UsersContainer);
+    })
+)(UsersContainer)
