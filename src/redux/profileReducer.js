@@ -1,3 +1,5 @@
+import {API} from "../api/api";
+
 const ADD_POST = 'ADD-POST';
 const NEW_POST_TEXT = 'NEW-POST-TEXT';
 const SET_PROFILE = 'SET_PROFILE';
@@ -14,6 +16,15 @@ export const setProfile = (profile) => {
     return {type: SET_PROFILE, profile: profile};
 };
 
+export const getProfileThunkCreator = (userId) => (dispatch) => {
+    if (userId) {
+        API.profile(userId)
+            .then(response => {
+                    dispatch(setProfile(response))
+                }
+            )
+    }
+}
 
 let initialState = {
     newPostText: '',

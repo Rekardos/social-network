@@ -9,8 +9,6 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import {makeStyles} from "@material-ui/styles";
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
-import {API} from "../../api/api";
 
 let Users = (props) => {
 
@@ -43,27 +41,12 @@ let Users = (props) => {
                     {e.followed ?
                         <Button disabled={props.followInProgress.some(id => id === e.id)} onClick={() => {
 
-                            props.togglefollowInProgress(true,e.id)
-                            API.unfollow(e.id)
-                                .then(response => {
-                                    if (response.resultCode === 0) {
-                                        props.unfollow(e.id)
-                                    }
-                                    props.togglefollowInProgress(false,e.id)
-                                })
+                            props.unfollowThunkCreator(e.id)
 
                         }}> Отписаться</Button> :
                         <Button disabled={props.followInProgress.some(id => id === e.id)} onClick={() => {
 
-                            props.togglefollowInProgress(true,e.id)
-                            API.follow(e.id)
-                                .then(response => {
-                                    if (response.resultCode === 0) {
-                                        props.follow(e.id)
-                                    }
-                                    props.togglefollowInProgress(false,e.id)
-                                })
-
+                            props.followThunkCreator(e.id)
 
                         }}> Подписаться</Button>}
                 </CardActions>

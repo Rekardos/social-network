@@ -15,7 +15,7 @@ const ProfileInfo = (props) => {
 
     return (
         <Box>
-            <img src={props.profile.photos.large}alt=""/>
+            <img src={props.profile.photos.large} alt=""/>
             <Typography variant={'h3'}>{props.profile.fullName}</Typography>
 
         </Box>
