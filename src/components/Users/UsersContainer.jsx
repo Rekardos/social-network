@@ -2,12 +2,11 @@ import React from "react";
 import Users from "./Users";
 import {connect} from "react-redux";
 import {
-    follow, followThunkCreator, getUsersThunkCreator,
-    setCountUsers,
-    setCurrentPage,
-    setUsers,
-    toggeleIsFetching, togglefollowInProgress,
-    unfollow, unfollowThunkCreator
+    followThunkCreator,
+    getUsersThunkCreator,
+    toggeleIsFetching,
+    togglefollowInProgress,
+    unfollowThunkCreator
 } from "../../redux/usersReducer";
 import {compose} from "redux";
 import {withAuthRedirect} from "../hoc/AuthRedirectComponent";
@@ -15,11 +14,11 @@ import {withAuthRedirect} from "../hoc/AuthRedirectComponent";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.getUsersThunkCreator(this.props.currentPage,this.props.pageSize)
+        this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize)
     }
 
     pageNumber = (page) => {
-        this.props.getUsersThunkCreator(page,this.props.pageSize)
+        this.props.getUsersThunkCreator(page, this.props.pageSize)
     };
 
     render() {
@@ -45,23 +44,13 @@ let mapStateToProps = (state) => {
         followInProgress: state.usersPage.followInProgress,
 
 
-
-
     }
 };
 
 export default compose(
     withAuthRedirect,
     connect(mapStateToProps, {
-        follow,
 
-        unfollow,
-
-        setUsers,
-
-        setCountUsers,
-
-        setCurrentPage,
 
         toggeleIsFetching,
 

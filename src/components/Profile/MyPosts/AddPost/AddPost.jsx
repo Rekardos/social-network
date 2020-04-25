@@ -1,38 +1,24 @@
 import React from "react";
-import c from './AddPost.module.css';
-import Button from "@material-ui/core/Button";
-import {TextField} from "@material-ui/core";
-import Box from "@material-ui/core/Box";
+import {Field, reduxForm} from "redux-form";
 
 const AddPost = (props) => {
 
-    let refPost = React.createRef();
-
-    let addPost = () => {
-        props.addPost();
-        // props.dispatch(addPostActionCreator());
-    };
-
-    let textOnChange = () => {
-        let text = refPost.current.value;
-        props.textOnChange(text);
-        // props.dispatch(newPostTextActionCreator(text));
-    };
-
     return (
-        <Box className={c.addPost}>
-            <div>
-                <TextField value={props.newPostText}
-                           onChange={textOnChange}
-                           multiline={true}
-                           variant="outlined"
-                           inputRef={refPost}/>
-            </div>
-            <div>
-                <Button onClick={addPost}>Добавить</Button>
-            </div>
-        </Box>
+            <ReduxPostForm onSubmit={props.onSubmit}/>
     );
 };
+
+const PostForm = (props) => {
+    return <form onSubmit={props.handleSubmit}>
+        <div>
+            <Field name={'postMessage'} component={'input'}/>
+        </div>
+        <div>
+            <Field component={'button'}>Добавить</Field>
+        </div>
+    </form>
+    }
+
+const ReduxPostForm = reduxForm({form: 'addPost'})(PostForm)
 
 export default AddPost;

@@ -5,10 +5,16 @@ import AddPost from "./AddPost/AddPost";
 
 const MyPosts = (props) => {
     let post = props.posts.map(post => <Post key={post.id} message={post.text}/>);
+
+    const onSubmit = (formData) => {
+        console.log(formData.postMessage)
+        props.addPost(formData.postMessage)
+    }
+
     return (
         <div className={c.posts}>
             <h3>Мои посты</h3>
-            <AddPost newPostText={props.newPostText} addPost={props.addPost} textOnChange={props.textOnChange}/>
+            <AddPost onSubmit={onSubmit} newPostText={props.newPostText} />
             {post}
         </div>
     );

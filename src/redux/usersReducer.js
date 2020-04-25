@@ -55,7 +55,7 @@ export const getUsersThunkCreator = (currentPage,pageSize) => (dispatch) => {
 
 export const followThunkCreator = (userId) => (dispatch) => {
     dispatch(togglefollowInProgress(true,userId))
-    API.unfollow(userId)
+    API.follow(userId)
         .then(response => {
             if (response.resultCode === 0) {
                 dispatch(follow(userId))

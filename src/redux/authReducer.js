@@ -1,4 +1,4 @@
-import {API} from "../api/api";
+import {AuthAPI} from "../api/api";
 
 const SET_AUTH_DATA = 'SET_AUTH_DATA';
 
@@ -9,7 +9,7 @@ export const setAuthData = (data) => {
 
 
 export const setAuthThunkCreator = () => (dispatch) => {
-    API.authMe()
+    AuthAPI.authMe()
         .then(response => {
                 if(response.resultCode === 0) {
                     dispatch(setAuthData(response.data))
