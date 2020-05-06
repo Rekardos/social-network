@@ -11,13 +11,33 @@ export const setAuthData = (data) => {
 export const setAuthThunkCreator = () => (dispatch) => {
     AuthAPI.authMe()
         .then(response => {
-                if(response.resultCode === 0) {
-                    dispatch(setAuthData(response.data))
+                if (response.resultCode === 0) {
+                    dispatch(setAuthData({...response.data, isAuth: true}))
                 }
             }
         )
 }
 
+export const loginThunkCreator = (email,password,rememberMe) => (dispatch) => {
+
+    AuthAPI.loginMe(email,password,rememberMe,false)
+        .then(response => {
+                if (response.resultCode === 0) {
+                    dispatch(setAuthThunkCreator())
+                }
+            }
+        )
+}
+
+export const logOutThunkCreator = () => (dispatch) => {
+    AuthAPI.logOutMe()
+        .then(response => {
+                if (response.resultCode === 0) {
+                    dispatch(setAuthData({id: null, email: null, login: null, isAuth: false}))
+                }
+            }
+        )
+}
 
 
 let initialState = {
@@ -29,24 +49,16 @@ let initialState = {
 };
 
 export const authReducer = (state = initialState, action) => {
-
-
     switch (action.type) {
-
-
         case SET_AUTH_DATA:
-
             return {
                 ...state,
-                ...action.data,
-                isAuth: true
-
+                ...action.data
             };
 
         default:
             return state;
     }
-
 };
 
 

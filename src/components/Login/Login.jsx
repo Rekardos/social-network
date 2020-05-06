@@ -1,24 +1,20 @@
 import * as React from "react";
 import {Field, reduxForm} from "redux-form";
-import {API, AuthAPI} from "../../api/api";
-import {setAuthThunkCreator} from "../../redux/authReducer";
+import {loginThunkCreator} from "../../redux/authReducer";
+import {connect} from "react-redux";
 
-export class Login extends React.Component {
-    onSubmit(formData) {
-        AuthAPI.loginMe(formData.login, formData.password, formData.rememberMe, false)
-            .then(response => {
-                    if (response.resultCode === 0) {
-                        setAuthThunkCreator()
-                    }
-                }
-            )
-    }
 
-    render() {
+
+const Login = (props) => {
+
+        const onSubmit = (formData) => {
+            props.loginThunkCreator(formData.login,formData.password,formData.rememberMe)
+        }
+
         return <div>
-            <LoginReduxForm onSubmit={this.onSubmit}/>
+            <LoginReduxForm onSubmit={onSubmit}/>
         </div>
-    }
+
 }
 
 const LoginForm = (props) => {
@@ -39,3 +35,6 @@ const LoginForm = (props) => {
 }
 
 const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
+
+
+export default connect(null, {loginThunkCreator})(Login)
